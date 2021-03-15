@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TicketManagement4.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketStatus)
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketStatus)
+        </td>
+        
+       
+    </tr>
+}
+
+</table>

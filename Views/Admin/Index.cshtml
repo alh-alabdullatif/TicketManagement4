@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TicketManagement4.Models.AdminModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th>
+            Action
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmployeeName)
+    </td>
+    <td>
+        @Html.ActionLink("Approve", "Update", new { id=item.TicketId/* id=item.PrimaryKey */ }) |
+
+        @Html.ActionLink("Reject", "Reject", new { /* id=item.PrimaryKey */ })
+    </td>
+   
+    <td>
+        <button onclick="~/Admin/Update/id='@Url.Action("Update", "Admin",new {  id=item.TicketId})';return false;">Approve</button>
+
+    </td>
+    <td>
+        <a href="@Url.Action("Update","Admin",new {  id=item.TicketId})"><button>Button Text</button></a>
+    </td>
+</tr>
+}
+
+</table>

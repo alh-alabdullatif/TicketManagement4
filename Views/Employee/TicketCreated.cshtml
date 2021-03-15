@@ -1,0 +1,28 @@
+﻿@model TicketManagement4.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "TicketCreated";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TicketCreated</h2>
+<p>Ticket Created Successfully </p>
+
+
+@using (Html.BeginForm("Index", "Employee"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Back" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
